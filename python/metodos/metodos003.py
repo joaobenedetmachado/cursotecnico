@@ -1,0 +1,5 @@
+texto = str(input('escreva o texto central: '))
+espaco = int(input('escreve: '))
+print('*' * espaco)
+print(texto.center(espaco))
+print('*' * espaco)

@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(235, 235, 235);
+}
+
+body {
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    height: 230px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#main {
+    flex-direction: column;
+    background-color: #444444;
+    gap: 50px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#conteudo {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+#logo {
+    width: 400px;
+}
+
+#imagem {
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 680px;
+}

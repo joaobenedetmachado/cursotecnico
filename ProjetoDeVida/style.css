@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Freeman&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+* {
+    margin: 0;
+}
+
+body {
+    background-color: rgb(224, 185, 134);
+    min-width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: "Radio Canada Big", sans-serif;
+}
+
+#main {
+    min-height: 100vh;
+    width: 65%;
+}
+
+#logo {
+    width: 150px;
+    height: 150px;
+}
+
+header {
+    height: 200px;
+    width: 100%;
+    background-color: rgb(234, 247, 56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 10px;
+}
+
+section {
+    width: 100%;
+    background-color: rgb(245, 255, 101);
+    display: flex;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px;
+}
+
+#areatextos {
+    width: 90%;
+    margin-top: 50px;
+}
+
+#sobre {
+    margin-bottom: 50px;
+}
+
+#sobre p {
+    margin-bottom: 20px;
+}
+
+#objetivos p {
+    margin-bottom: 20px;
+}
+
+#objetivos {
+    margin-bottom: 50px;
+}
+
+#atividades {
+    margin-bottom: 50px;
+}
+
+#atividades p {
+    margin-bottom: 20px;
+}
+
+#contribuir {
+    margin-bottom: 50px;
+}
+
+p {
+    font-size: 13pt;
+}
+
+#contato {
+    margin-bottom: 50px;
+}
+@media (max-width: 600px) {
+    #main {
+        min-height: 100vh;
+        width: 100%;
+    }
+}
