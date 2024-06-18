@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mover DIV com W A S D</title>
+  <style>
+    * {
+        margin: 0;
+    }
+
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="1000" height="500">
+    <canvas id="bloco" width="100" height="100"> </canvas>
+  </canvas>
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    let x = canvas.width / 2;
+    let y = canvas.height / 2;
+    let xSpeed = 0; // Velocidade horizontal inicial
+    let ySpeed = 0; // Velocidade vertical inicial
+    const playerSize = 50;
+    const step = 5; // Reduzindo a velocidade de movimento
+    const gravity = 0.5; // Gravidade mais fraca
+    const jumpStrength = 15; // Força de pulo mais fraca
+
+    function drawPlayer() {
+      ctx.beginPath();
+      ctx.rect(x - playerSize / 2, y - playerSize / 2, playerSize, playerSize);
+      ctx.fillStyle = 'green'; // Alterando a cor do jogador
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function movePlayer(dx, dy) {
+      let newX = x + dx;
+      let newY = y + dy;
+
+      // Verificar colisão com as bordas do canvas
+      if (newX - playerSize / 2 >= 0 && newX + playerSize / 2 <= canvas.width &&
+          newY - playerSize / 2 >= 0 && newY + playerSize / 2 <= canvas.height) {
+        x = newX;
+        y = newY;
+      }
+    }
+
+    function applyGravity() {
+      if (y + playerSize / 2 < canvas.height) {
+        ySpeed += gravity;
+        y += ySpeed;
+      } else {
+        ySpeed = 0;
+        y = canvas.height - playerSize / 2;
+      }
+    }
+
+    function jump() {
+      if (y + playerSize / 2 >= canvas.height) { // Permitir pulo somente se o jogador estiver no chão
+        ySpeed = -jumpStrength; // Velocidade vertical para cima
+        movePlayer(xSpeed, ySpeed); // Movimento ao pular
+      }
+    }
+
+    function draw() {
+      clearCanvas();
+      drawPlayer();
+    }
+
+    document.addEventListener('keydown', function(event) {
+      switch (event.key.toLowerCase()) {
+        case 'w':
+          jump();
+          break;
+        case 'd':
+          xSpeed = step; // Direita
+          movePlayer(xSpeed, 0);
+          break;
+        case 'a':
+          xSpeed = -step; // Esquerda
+          movePlayer(xSpeed, 0);
+          break;
+      }
+      draw();
+    });
+
+    // Aplicar gravidade continuamente
+    setInterval(function() {
+      applyGravity();
+      draw();
+    }, 1000 / 60); // Atualizar a cada 1/60 segundos (60 FPS)
+
+    draw();
+  </script>
+</body>
+</html>
